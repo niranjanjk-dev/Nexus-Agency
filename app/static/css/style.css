@@ -1,0 +1,307 @@
+/* =========================================
+   1. IMPORT LUXURY FONTS & TYPOGRAPHY
+   ========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400;1,600&family=Manrope:wght@200;300;400;600&display=swap');
+
+body {
+    font-family: 'Manrope', sans-serif;
+    background-color: #020202; /* Deepest Black */
+    color: #ffffff;
+    margin: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Fancy Headings */
+h1, h2, .lead-title, .form-header h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    letter-spacing: -0.02em;
+}
+
+em {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 400;
+}
+
+/* Fix: Lift text above the noise layer */
+main, h1, h2, p, a, button {
+    position: relative;
+    z-index: 10;
+}
+
+
+/* =========================================
+   2. ATMOSPHERE (Noise & Orbs)
+   ========================================= */
+/* Subtle Noise Texture */
+.bg-noise {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none; z-index: 0; 
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Ambient Orbs */
+.orb {
+    position: fixed; border-radius: 50%; filter: blur(140px); z-index: -1;
+    opacity: 0.25; animation: float 25s infinite ease-in-out;
+}
+
+.orb-1 { width: 600px; height: 600px; background: #4f46e5; top: -20%; left: -10%; }
+.orb-2 { width: 500px; height: 500px; background: #FF6B6B; bottom: -10%; right: -5%; animation-delay: -5s; }
+.orb-3 { width: 300px; height: 300px; background: #06b6d4; top: 40%; left: 30%; animation-delay: -10s; opacity: 0.2; }
+
+@keyframes float {
+    0%, 100% { transform: translate(0, 0); }
+    33% { transform: translate(30px, -50px); }
+    66% { transform: translate(-20px, 20px); }
+}
+
+
+/* =========================================
+   3. CINEMATIC HERO (Text Only Version)
+   ========================================= */
+.cinematic-hero {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    text-align: center;
+    overflow: hidden;
+    z-index: 10;
+}
+
+/* Content Container & Animation */
+.hero-text-content {
+    position: relative; 
+    z-index: 20; 
+    padding: 0 20px;
+    opacity: 0; 
+    transform: translateY(30px);
+    animation: fadeInUp 1.5s cubic-bezier(0.2, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+
+
+/* --- HERO TYPOGRAPHY (Fixed Spacing) --- */
+.hero-label-text {
+    display: block; 
+    font-family: 'Manrope', sans-serif;
+    font-size: 1.0rem; 
+    letter-spacing: 10px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.6); 
+    margin-bottom: 40px;
+}
+
+.hero-main-title {
+    font-family: 'Manrope', sans-serif; 
+    font-weight: 200;
+    
+    /* Kept Massive Size */
+    font-size: 10rem; 
+    
+    /* INCREASED line-height to stop collision */
+    line-height: 0.96; 
+    
+    color: #fff; 
+    margin-bottom: 40px; 
+    letter-spacing: -6px;
+}
+
+.italic-accent {
+    display: block; 
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic; 
+    font-weight: 600;
+    padding-bottom: 25px;
+    font-size: 13rem; 
+    
+    /* REMOVED negative margin (was -20px) */
+    margin-top: 10px; 
+    
+    background: linear-gradient(to bottom right, #ffffff 20%, #888888 100%);
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-subtext {
+    font-family: 'Manrope', sans-serif; 
+    font-size: 1.3rem;
+    font-weight: 300; 
+    color: rgba(255,255,255,0.8);
+    max-width: 600px; 
+    margin: 0 auto 60px auto; 
+    line-height: 1.6;
+    
+    /* Added margin top to push it away from the big title */
+    margin-top: 40px; 
+}
+
+
+/* --- HERO BUTTON --- */
+.luxury-btn {
+    display: inline-block; 
+    padding: 25px 60px;
+    border: 1px solid rgba(255,255,255,0.3); 
+    color: #fff;
+    text-decoration: none; 
+    text-transform: uppercase;
+    font-size: 0.9rem; 
+    letter-spacing: 4px;
+    background: rgba(255,255,255,0.05); 
+    backdrop-filter: blur(5px);
+    transition: all 0.4s ease;
+}
+.luxury-btn:hover { 
+    background: #fff; 
+    color: #000; 
+    box-shadow: 0 0 50px rgba(255,255,255,0.4); 
+}
+
+
+/* =========================================
+   4. LUXURY NAVBAR
+   ========================================= */
+:root {
+    --nav-glass: rgba(255, 255, 255, 0.03);
+    --nav-border: rgba(255, 255, 255, 0.08);
+}
+
+.glass-nav {
+    position: fixed; top: 0; left: 0;
+    width: 100%; height: 80px; padding: 0 5%;
+    z-index: 100; display: flex; justify-content: space-between; align-items: center;
+    background: var(--nav-glass);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--nav-border);
+}
+
+.nav-logo { font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
+
+.nav-links {
+    position: relative; display: flex; list-style: none; gap: 50px; padding: 0; margin: 0;
+}
+.nav-links li a {
+    text-decoration: none; color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1.5px;
+    transition: color 0.3s ease;
+}
+.nav-links li a:hover, .nav-links li a.active { color: #fff; }
+
+#nav-marker {
+    position: absolute; bottom: -10px; left: 0; width: 6px; height: 6px;
+    background: #fff; border-radius: 50%;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    transition: left 0.5s cubic-bezier(0.25, 1, 0.5, 1); opacity: 0;
+}
+#nav-marker.visible { opacity: 1; }
+
+
+/* =========================================
+   5. CONTACT / FORM SECTION
+   ========================================= */
+.contact-section {
+    position: relative; z-index: 10; padding: 120px 5%;
+    display: flex; justify-content: center;
+}
+
+.glass-form-container {
+    width: 100%; max-width: 700px;
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 60px; border-radius: 4px;
+}
+
+.form-header { margin-bottom: 50px; text-align: center; }
+.sub-label {
+    color: #ff4d4d; font-size: 0.75rem; letter-spacing: 3px;
+    text-transform: uppercase; font-weight: 700; display: block; margin-bottom: 15px;
+}
+.form-header h2 { font-size: 2.5rem; font-weight: 300; line-height: 1.2; }
+
+/* Inputs */
+.luxury-form { font-family: 'Manrope', sans-serif; display: flex; flex-direction: column; gap: 30px; }
+
+.luxury-form input, .luxury-form select, .luxury-form textarea {
+    background: transparent; border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff; padding: 15px 0; width: 100%;
+    font-size: 1rem; font-family: 'Manrope', sans-serif;
+    font-weight: 300; letter-spacing: 0.5px; outline: none; border-radius: 0;
+    transition: border-color 0.4s ease;
+}
+.luxury-form input:focus, .luxury-form select:focus, .luxury-form textarea:focus {
+    border-bottom: 1px solid #fff;
+}
+.luxury-form textarea { resize: none; height: 100px; margin-top: 20px; }
+
+::placeholder { color: rgba(255, 255, 255, 0.3); text-transform: uppercase; font-size: 0.75rem; letter-spacing: 2px; }
+
+/* Grid for Dropdowns */
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+.select-group { position: relative; }
+option { background-color: #050505; color: #fff; padding: 10px; }
+
+/* Submit Button */
+.submit-btn {
+    margin-top: 20px; background: #fff; color: #000; border: none;
+    padding: 20px 40px; font-size: 0.9rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 1px; cursor: pointer;
+    transition: transform 0.3s ease;
+}
+.submit-btn:hover { transform: translateY(-2px); background: #f0f0f0; }
+
+
+/* =========================================
+   6. FOOTER
+   ========================================= */
+.luxury-footer {
+    position: relative; z-index: 10; width: 100%; padding: 80px 10% 40px 10%;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    background: linear-gradient(to top, rgba(5,5,5,1) 0%, rgba(5,5,5,0) 100%);
+    margin-top: 150px;
+}
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 80px; }
+.footer-logo { font-size: 1.5rem; font-weight: 700; letter-spacing: 2px; margin-bottom: 20px; }
+.footer-tagline { color: rgba(255, 255, 255, 0.5); line-height: 1.6; font-size: 0.9rem; }
+.footer-col h4 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; color: rgba(255, 255, 255, 0.4); margin-bottom: 25px; }
+.footer-list { list-style: none; padding: 0; margin: 0; }
+.footer-list li { margin-bottom: 15px; }
+.footer-list a { text-decoration: none; color: #fff; font-size: 0.9rem; opacity: 0.7; transition: opacity 0.3s ease; }
+.footer-list a:hover { opacity: 1; }
+.footer-bottom { display: flex; justify-content: space-between; padding-top: 30px; border-top: 1px solid rgba(255, 255, 255, 0.05); font-size: 0.8rem; color: rgba(255, 255, 255, 0.3); }
+
+
+/* =========================================
+   7. MOBILE RESPONSIVENESS
+   ========================================= */
+@media (max-width: 768px) {
+    /* Navbar Bottom */
+    .glass-nav {
+        top: auto; bottom: 20px; left: 50%; transform: translateX(-50%);
+        width: 90%; height: 60px; border-radius: 30px; justify-content: center;
+        border: 1px solid var(--nav-border); background: rgba(10, 10, 10, 0.85);
+    }
+    .nav-logo { display: none; }
+    .nav-links { gap: 20px; width: 100%; justify-content: space-evenly; }
+    .nav-links li a { font-size: 0.7rem; }
+
+    /* Hero Typography Mobile Scale */
+    .hero-main-title { font-size: 5rem; letter-spacing: -2px; }
+    .italic-accent { font-size: 6rem; }
+    .hero-label-text { font-size: 0.7rem; letter-spacing: 4px; }
+    
+    /* Footer & Form */
+    .luxury-footer { padding: 60px 5% 120px 5%; }
+    .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+    .footer-bottom { flex-direction: column; gap: 15px; text-align: center; }
+    .glass-form-container { padding: 30px; }
+    .form-grid { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="admin container">
+  <h1>Admin Dashboard</h1>
+  <section>
+    <h2>Recent Leads</h2>
+    <table class="table">
+      <thead><tr><th>Name</th><th>Email</th><th>Service</th><th>Budget</th><th>Time</th></tr></thead>
+      <tbody>
+        {% for l in leads %}
+          <tr><td>{{ l.name }}</td><td>{{ l.email }}</td><td>{{ l.service_interest }}</td><td>{{ l.budget }}</td><td>{{ l.created_at }}</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>Services</h2>
+    <a class="btn" href="{{ url_for('admin.new_service') }}">New Service</a>
+    <ul>
+      {% for s in services %}
+        <li>{{ s.title }} — {{ s.price }}</li>
+      {% endfor %}
+    </ul>
+  </section>
+
+  <section>
+    <h2>Portfolio</h2>
+    <ul>
+      {% for p in portfolio %}
+        <li>{{ p.title }} — {{ p.category }}</li>
+      {% endfor %}
+    </ul>
+  </section>
+
+</div>
+{% endblock %}
