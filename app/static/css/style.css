@@ -562,139 +562,184 @@ option { background-color: #050505; color: #fff; padding: 10px; }
 }
 
 /* =========================================
-   SERVICES: THE OBSIDIAN GRID
+   SERVICES STREAM (Horizontal Glass)
    ========================================= */
-.services-section {
-    padding: 150px 5%;
+.services-stream-section {
     position: relative;
+    padding: 120px 0; /* Full width */
+    overflow: hidden;
     z-index: 10;
-    background: transparent; /* Lets noise/orbs show through */
 }
 
-/* Header Typography */
-.services-header {
-    margin-bottom: 80px;
-    max-width: 600px;
+/* Header & Nav Layout */
+.stream-header {
+    padding: 0 5%;
+    margin-bottom: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
 }
+
 .service-label {
     font-family: 'Manrope', sans-serif;
     font-size: 0.75rem;
     letter-spacing: 4px;
     text-transform: uppercase;
     color: #ff4d4d;
-    display: block;
-    margin-bottom: 20px;
+    display: block; margin-bottom: 15px;
 }
+
 .service-title {
     font-family: 'Manrope', sans-serif;
-    font-size: 3.5rem;
+    font-size: 3rem;
     font-weight: 300;
+    line-height: 1;
     color: #fff;
-    line-height: 1.1;
-}
-.serif-italic {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    color: rgba(255,255,255,0.6);
+    margin: 0;
 }
 
-/* Grid Layout */
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 Equal Columns */
-    gap: 1px; /* The gap creates the border lines */
-    background: rgba(255, 255, 255, 0.1); /* The color of the grid lines */
-    border: 1px solid rgba(255, 255, 255, 0.1);
+/* --- CUTE ARROW BUTTONS --- */
+.stream-nav {
+    display: flex;
+    gap: 15px;
 }
 
-/* The Card Itself */
-.service-card {
-    background: #020202; /* Matches body bg to hide the grid behind */
-    padding: 60px 40px;
+.nav-btn {
+    width: 60px; height: 60px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.03); /* Slight glass fill */
+    color: #fff;
+    display: flex; justify-content: center; align-items: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    backdrop-filter: blur(5px);
+}
+
+.nav-btn:hover {
+    background: #fff;
+    color: #000;
+    transform: scale(1.1); /* Cute pop effect */
+    border-color: #fff;
+}
+
+.nav-btn svg {
+    transition: transform 0.3s ease;
+}
+.prev-btn:hover svg { transform: translateX(-3px); }
+.next-btn:hover svg { transform: translateX(3px); }
+
+
+/* --- THE SCROLL TRACK --- */
+.services-track-container {
+    display: flex;
+    gap: 30px;
+    overflow-x: auto;
+    padding: 0 5% 50px 5%; /* Padding bottom for shadows */
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    /* Hide Scrollbars */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.services-track-container::-webkit-scrollbar { display: none; }
+
+
+/* --- THE GLASS CARD --- */
+.glass-service-card {
+    min-width: 350px; /* Fixed width for scrolling */
+    height: 450px;
+    padding-top: 20px;
+    
+    /* The Glass Effect */
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    
+    padding: 40px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    transition: background 0.5s ease;
-    min-height: 500px;
-    position: relative;
+    
+    border-radius: 4px;
+    scroll-snap-align: start;
+    transition: all 0.4s ease;
 }
 
-/* Hover Effect: "Quiet Luxury" */
-.service-card:hover {
-    background: #080808; /* Very subtle lighten */
-}
-/* Optional: Add a top highlight on hover for depth */
-.service-card::after {
-    content: '';
-    position: absolute; top: 0; left: 0; width: 100%; height: 1px;
-    background: linear-gradient(90deg, transparent, #fff, transparent);
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
-.service-card:hover::after {
-    opacity: 0.5;
+.glass-service-card:hover {
+    background: rgba(255, 255, 255, 0.06);
+    transform: translateY(-10px); /* Lift effect */
+    border-color: rgba(255, 255, 255, 0.3);
 }
 
-/* Card Typography */
-.card-top { margin-bottom: 40px; }
+.highlight-glass {
+    /* Optional: Make the middle card slightly different? */
+    background: rgba(255, 255, 255, 0.04);
+}
 
-.service-num {
-    display: block;
-    font-family: 'Manrope', sans-serif;
-    font-size: 0.8rem;
+/* Card Content */
+.gs-icon {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
     color: rgba(255, 255, 255, 0.3);
     margin-bottom: 20px;
 }
 
-.card-heading {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2.2rem;
-    font-weight: 400;
+.gs-title {
+    font-family: 'Manrope', sans-serif;
+    font-size: 2rem;
+    font-weight: 300;
     line-height: 1.1;
     color: #fff;
+    margin-bottom: 15px;
 }
 
-.card-desc {
+.gs-desc {
     font-family: 'Manrope', sans-serif;
-    font-size: 0.95rem;
-    color: rgba(255, 255, 255, 0.5);
-    line-height: 1.7;
-    margin-bottom: 40px;
-    max-width: 90%;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.6);
+    flex-grow: 1; /* Pushes list to bottom */
 }
 
-/* Bullet List */
-.service-list {
-    list-style: none;
-    padding: 0; margin: 0;
+.gs-list {
+    list-style: none; padding: 0; margin: 0;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 30px;
-}
-.service-list li {
-    font-family: 'Manrope', sans-serif;
-    font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.7);
-    margin-bottom: 10px;
-    letter-spacing: 0.5px;
-    position: relative;
-    padding-left: 15px;
-}
-/* Custom Bullet */
-.service-list li::before {
-    content: '';
-    position: absolute; left: 0; top: 8px;
-    width: 4px; height: 4px; background: #fff;
-    border-radius: 50%; opacity: 0.3;
+    padding-top: 20px;
+    display: flex; gap: 20px;
 }
 
-/* Mobile Responsiveness */
-@media (max-width: 900px) {
-    .services-grid {
-        grid-template-columns: 1fr; /* Stack vertically */
-    }
-    .service-card {
-        min-height: auto;
-        padding: 40px 30px;
-    }
-    .service-title { font-size: 2.5rem; }
+.gs-list li {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.5);
 }
+
+/* Spacer for smooth scrolling end */
+.spacer-card { min-width: 5%; }
+
+/* Mobile */
+@media (max-width: 768px) {
+    .glass-service-card { min-width: 85vw; height: 400px; }
+    .stream-header { flex-direction: column; align-items: flex-start; gap: 20px; }
+}
+
+/* --- THE SCROLL TRACK (FIXED) --- */
+.services-track-container {
+    display: flex;
+    gap: 30px;
+    overflow-x: auto;
+    
+    /* FIX: Add 40px padding to Top so hover doesn't get cut off */
+    padding: 40px 5% 40px 5%; 
+    
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    
+    /* Hide Scrollbars */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.services-track-container::-webkit-scrollbar { display: none; }

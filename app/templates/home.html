@@ -104,65 +104,87 @@
     </div>
 </section>
 
-<section class="services-section" id="services">
+<section class="services-stream-section" id="services">
     
-    <div class="services-header">
-        <span class="service-label">Expertise</span>
-        <h2 class="service-title">
-            Crafted with <span class="serif-italic">Intention.</span>
-        </h2>
+    <div class="stream-header">
+        <div class="header-text">
+            <span class="service-label">Our Expertise</span>
+            <h2 class="service-title">
+                Service <span class="serif-italic">Spectrum.</span>
+            </h2>
+        </div>
     </div>
 
-    <div class="services-grid">
+    <div class="services-track-container" id="serviceTrack">
         
-        <div class="service-card">
-            <div class="card-top">
-                <span class="service-num">01</span>
-                <h3 class="card-heading">Digital<br>Architecture</h3>
-            </div>
-            <p class="card-desc">
-                High-performance web ecosystems built on Python & Flask. We prioritize speed, SEO, and scalability without compromising on visual motion.
-            </p>
-            <ul class="service-list">
-                <li>Full-Stack Development</li>
-                <li>WebGL & 3D Interaction</li>
-                <li>Headless CMS Architecture</li>
-            </ul>
+        <div class="glass-service-card">
+            <div class="gs-icon">01</div>
+            <h3 class="gs-title">Digital<br>Architecture</h3>
+            <p class="gs-desc">High-performance Flask & Python ecosystems built for speed.</p>
+            <ul class="gs-list"><li>Full Stack</li><li>WebGL</li></ul>
         </div>
 
-        <div class="service-card highlight-card">
-            <div class="card-top">
-                <span class="service-num">02</span>
-                <h3 class="card-heading">Artificial<br>Intelligence</h3>
-            </div>
-            <p class="card-desc">
-                Seamless integration of LLMs and automation. We build the "brain" behind the brand, automating logic while keeping the interface human.
-            </p>
-            <ul class="service-list">
-                <li>Custom Chatbots</li>
-                <li>Predictive Analytics</li>
-                <li>Process Automation</li>
-            </ul>
+        <div class="glass-service-card highlight-glass">
+            <div class="gs-icon">02</div>
+            <h3 class="gs-title">Artificial<br>Intelligence</h3>
+            <p class="gs-desc">LLM integration and predictive automation.</p>
+            <ul class="gs-list"><li>Chatbots</li><li>Automation</li></ul>
         </div>
 
-        <div class="service-card">
-            <div class="card-top">
-                <span class="service-num">03</span>
-                <h3 class="card-heading">Visual<br>Identity</h3>
-            </div>
-            <p class="card-desc">
-                Refining the chaos of ideas into a singular, timeless aesthetic. We create design systems that scale across every digital touchpoint.
-            </p>
-            <ul class="service-list">
-                <li>Art Direction</li>
-                <li>UI/UX Design</li>
-                <li>Motion Graphics</li>
-            </ul>
+        <div class="glass-service-card">
+            <div class="gs-icon">03</div>
+            <h3 class="gs-title">Visual<br>Identity</h3>
+            <p class="gs-desc">Design systems that scale across every touchpoint.</p>
+            <ul class="gs-list"><li>UI/UX</li><li>Art Direction</li></ul>
+        </div>
+
+        <div class="glass-service-card">
+            <div class="gs-icon">04</div>
+            <h3 class="gs-title">Mobile<br>Ecosystems</h3>
+            <p class="gs-desc">Native applications that feel fluid and responsive.</p>
+            <ul class="gs-list"><li>iOS</li><li>React Native</li></ul>
+        </div>
+
+        <div class="glass-service-card">
+            <div class="gs-icon">01</div>
+            <h3 class="gs-title">Digital<br>Architecture</h3>
+            <p class="gs-desc">High-performance Flask & Python ecosystems built for speed.</p>
+            <ul class="gs-list"><li>Full Stack</li><li>WebGL</li></ul>
+        </div>
+
+        <div class="glass-service-card highlight-glass">
+            <div class="gs-icon">02</div>
+            <h3 class="gs-title">Artificial<br>Intelligence</h3>
+            <p class="gs-desc">LLM integration and predictive automation.</p>
+            <ul class="gs-list"><li>Chatbots</li><li>Automation</li></ul>
+        </div>
+
+        <div class="glass-service-card">
+            <div class="gs-icon">03</div>
+            <h3 class="gs-title">Visual<br>Identity</h3>
+            <p class="gs-desc">Design systems that scale across every touchpoint.</p>
+            <ul class="gs-list"><li>UI/UX</li><li>Art Direction</li></ul>
         </div>
 
     </div>
-</section>
 
+    <div class="stream-nav-container">
+        <button class="nav-btn prev-btn" aria-label="Scroll Left" onclick="scrollServices(-1)">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+        
+        <div class="nav-divider"></div>
+
+        <button class="nav-btn next-btn" aria-label="Scroll Right" onclick="scrollServices(1)">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+    </div>
+
+</section>
 
     <section class="contact-section" id="contact">
         <div class="glass-form-container">

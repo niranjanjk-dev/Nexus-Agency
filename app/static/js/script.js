@@ -132,3 +132,17 @@ document.addEventListener('scroll', function() {
 
     
 });
+
+/* --- SERVICES SCROLL LOGIC --- */
+function scrollServices(direction) {
+    const track = document.getElementById('serviceTrack');
+    const cardWidth = 350 + 30; // Card width + Gap (approx)
+    
+    // Smooth scroll amount
+    const scrollAmount = direction * cardWidth;
+    
+    track.scrollBy({
+        left: scrollAmount,
+        behavior: 'smooth'
+    });
+}
