@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Agency</title>
+    
+    <link rel="stylesheet" href="/static/css/style.css">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+
+    <div class="bg-noise"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <nav class="glass-nav">
+        <div class="nav-logo">NEXUS</div>
+        <ul class="nav-links">
+            <li><a href="/" class="active">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Work</a></li>
+            <li><a href="#">Lab</a></li>
+            <li><a href="#">Contact</a></li>
+            <div id="nav-marker"></div>
+        </ul>
+    </nav>
+
+    <div id="flash-container">
+        
+            
+        
+    </div>
+
+    <main class="content-wrapper">
+        
+
+    <section class="cinematic-hero">
+        
+        <div class="hero-text-content">
+            <span class="hero-label-text">EST. 2025 &bull; GLOBAL</span>
+            
+            <h1 class="hero-main-title">
+                Digital <br> 
+                <span class="italic-accent">Alchemy.</span>
+            </h1>
+            
+            <p class="hero-subtext">
+                We build digital ecosystems for the next generation of brands.
+            </p>
+            
+            <div class="hero-btn-wrapper">
+                <a href="#contact" class="luxury-btn">Initialize Project</a>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="contact-section" id="contact">
+        <div class="glass-form-container">
+            
+            <div class="form-header">
+                <span class="sub-label">Inquire</span>
+                <h2>Start the <br> <em>Transformation.</em></h2>
+            </div>
+            
+            <form action="/lead" method="POST" class="luxury-form">
+                
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Full Name" required autocomplete="name">
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Email Address" required autocomplete="email">
+                </div>
+                
+                <div class="form-grid">
+                     <div class="form-group select-group">
+                        <select name="service_interest" required>
+                            <option value="" disabled selected>Service Interest</option>
+                            <option value="Web">Web Development</option>
+                            <option value="AI">AI Systems</option>
+                        </select>
+                    </div>
+                    <div class="form-group select-group">
+                        <select name="budget" required>
+                            <option value="" disabled selected>Est. Budget</option>
+                            <option value="10k">10k+</option>
+                            <option value="50k">50k+</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <textarea name="message" placeholder="Project Details..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Submit Request</button>
+                
+            </form>
+        </div>
+    </section>
+
+
+    </main>
+
+    <footer class="luxury-footer">
+        <div class="footer-grid">
+            <div class="footer-col brand-col">
+                <h2 class="footer-logo">NEXUS</h2>
+                <p class="footer-tagline">Where digital craft meets <br> creative precision.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Explore</h4>
+                <ul class="footer-list">
+                    <li><a href="#">Studio</a></li>
+                    <li><a href="#">Selected Work</a></li>
+                    <li><a href="#">The Lab</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Social</h4>
+                <ul class="footer-list">
+                    <li><a href="#">LinkedIn</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Twitter / X</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Inquiries</h4>
+                <ul class="footer-list">
+                    <li><a href="mailto:hello@nexus.com" class="highlight-link">hello@nexus.com</a></li>
+                    <li class="address">100 Tech Plaza, SF</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <span>&copy; 2025 Nexus Agency.</span>
+            <div class="legal-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/static/js/script.js"></script>
+</body>
+</html>

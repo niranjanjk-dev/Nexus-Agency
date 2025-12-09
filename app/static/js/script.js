@@ -64,4 +64,71 @@ document.addEventListener('scroll', function() {
         // Optional: Move text up slightly as it fades
         heroText.style.transform = `translateY(-${scrollY * 0.2}px)`;
     }
+
+    /* --- SCROLL REVEAL ANIMATIONS --- */
+    const observerOptions = {
+        threshold: 0.2, // Trigger when 20% of element is visible
+        rootMargin: "0px"
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Add 'reveal-effect' to the shutter mask
+                const mask = entry.target.querySelector('.shutter-mask');
+                if (mask) mask.classList.add('reveal-effect');
+                
+                // Add generic 'in-view' class to section for other items
+                entry.target.classList.add('in-view');
+                
+                // Stop observing once animated
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    // Target the About Section
+    const aboutSection = document.querySelector('.about-section');
+    if (aboutSection) {
+        observer.observe(aboutSection);
+    }
+
+    /* --- MOVABLE PHOTO SECTION (PARALLAX) --- */
+    const scene = document.getElementById('parallax-scene');
+    
+    if (scene) {
+        scene.addEventListener('mousemove', (e) => {
+            const layers = scene.querySelectorAll('.visual-layer');
+            
+            // Get mouse position relative to the container center
+            const x = (e.clientX - scene.getBoundingClientRect().left) / scene.offsetWidth - 0.5;
+            const y = (e.clientY - scene.getBoundingClientRect().top) / scene.offsetHeight - 0.5;
+            
+            layers.forEach(layer => {
+                // Get the speed from the HTML data-attribute
+                const speed = layer.getAttribute('data-speed');
+                
+                // Calculate movement (Reverse direction for depth)
+                const xMove = x * speed;
+                const yMove = y * speed;
+                
+                // Apply subtle rotation for extra "luxury" feel
+                const rotateX = y * 5; 
+                const rotateY = x * -5;
+                
+                layer.style.transform = `translate(${xMove}px, ${yMove}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            });
+        });
+
+        // Reset to center when mouse leaves
+        scene.addEventListener('mouseleave', () => {
+            const layers = scene.querySelectorAll('.visual-layer');
+            layers.forEach(layer => {
+                layer.style.transform = `translate(0, 0) rotate(0)`;
+                // Add a transition in CSS so it floats back smoothly
+            });
+        });
+    }
+
+    
 });
